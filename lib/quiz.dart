@@ -20,7 +20,6 @@ class _QuizAppState extends State<QuizApp> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         screen = 'result_page';
-        selectedAnswers = [];
       });
     }
   }
@@ -43,6 +42,7 @@ class _QuizAppState extends State<QuizApp> {
       case "result_page":
         activeScreen = ResultScreen(
             chosenAnswers: selectedAnswers, showQuizScreen: switchScreen);
+        selectedAnswers = [];
     }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
