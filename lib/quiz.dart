@@ -45,6 +45,7 @@ class _QuizAppState extends State<QuizApp> {
 
   @override
   Widget build(BuildContext context) {
+    Widget activeScreen = StartPage(switchScreen);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "QuizApp",
