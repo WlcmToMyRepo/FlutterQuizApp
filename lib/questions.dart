@@ -108,17 +108,14 @@ class _AnsBtnState extends State<AnsBtn> {
               backgroundColor: const Color.fromARGB(255, 8, 14, 51),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30))),
-          onPressed: isClickable
-              ? () {
-                  setState(() {
-                    if (isClickable) {
-                      widget.onPressed();
-                    }
-                    isClickable = false;
-                    // print(isClickable ? 'CAN CLICK' : 'CANNOT CLICK');
-                  });
-                }
-              : () {},
+          onPressed: () {
+            if (isClickable) {
+              setState(() {
+                widget.onPressed();
+                isClickable = false;
+              });
+            }
+          },
           child: Text(
             widget.text,
             style: const TextStyle(color: Colors.white),
