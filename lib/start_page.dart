@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StartPage extends StatelessWidget {
-  final void Function() switchScreen;
+  final void Function(String new_screen) switchScreen;
   const StartPage(this.switchScreen, {super.key});
 
   @override
@@ -45,7 +45,7 @@ class StartPage extends StatelessWidget {
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () {
-                  switchScreen();
+                  switchScreen('question_page');
                 },
                 icon: const Icon(Icons.arrow_right_alt),
                 label: const Text(

@@ -12,45 +12,43 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  late Widget screen;
+  String screen = "start_page";
   List<String> selectedAnswers = [];
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        screen = ResultScreen(
-          chosenAnswers: selectedAnswers,
-          showQuizScreen: switchScreen,
-        );
+        screen = 'result_page';
         selectedAnswers = [];
       });
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    // screen = ResultScreen();
-    screen = StartPage(switchScreen);
-  }
-
-  void switchScreen() {
+  void switchScreen(String newScreen) {
     setState(() {
-      screen = QuestionPage(
-        selectAnswer: chooseAnswer,
-      );
+      screen = newScreen;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     Widget activeScreen = StartPage(switchScreen);
+
+    switch (screen) {
+      case "start_page":
+        activeScreen = StartPage(switchScreen);
+      case "question_page":
+        activeScreen = QuestionPage(selectAnswer: chooseAnswer);
+      case "result_page":
+        activeScreen = ResultScreen(
+            chosenAnswers: selectedAnswers, showQuizScreen: switchScreen);
+    }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "QuizApp",
       home: Scaffold(
-        body: screen,
+        body: activeScreen,
       ),
     );
   }

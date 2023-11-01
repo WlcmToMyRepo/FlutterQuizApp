@@ -3,7 +3,7 @@ import 'package:quiz_app/data/questions_data.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<String> chosenAnswers;
-  final Function() showQuizScreen;
+  final Function(String screen) showQuizScreen;
   const ResultScreen(
       {super.key, required this.chosenAnswers, required this.showQuizScreen});
 
@@ -58,7 +58,7 @@ class ResultScreen extends StatelessWidget {
           ),
           OutlinedButton(
               onPressed: () {
-                showQuizScreen();
+                showQuizScreen('question_page');
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
