@@ -6,8 +6,19 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [],
-    );
+    return Column(
+        children: summaryData.map((data) {
+      return Expanded(
+          child: Row(
+        children: [
+          Text(
+            "${data['questionIndex']}",
+          ),
+          Text(
+            data['question'] as String,
+          ),
+        ],
+      ));
+    }).toList());
   }
 }

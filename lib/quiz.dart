@@ -24,6 +24,7 @@ class _QuizAppState extends State<QuizApp> {
     }
   }
 
+// this method will change the screen based on string passed
   void switchScreen(String newScreen) {
     setState(() {
       screen = newScreen;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions_data.dart';
+import 'package:quiz_app/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<String> chosenAnswers;
@@ -52,6 +53,8 @@ class ResultScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+          // QuestionsSummary(summaryData: getSummary()),
+          //this code snippet is my custom summarylist
           SizedBox(height: 500, child: SummaryList(summary: getSummary())),
           const SizedBox(
             height: 20,
