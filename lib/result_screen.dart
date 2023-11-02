@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions_data.dart';
-import 'package:quiz_app/questions_summary.dart';
+// import 'package:quiz_app/questions_summary.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<String> chosenAnswers;
@@ -8,7 +8,7 @@ class ResultScreen extends StatelessWidget {
   const ResultScreen(
       {super.key, required this.chosenAnswers, required this.showQuizScreen});
 
-  List<Map<String, Object>> getSummary() {
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
     for (var i = 0; i < chosenAnswers.length; i++) {
       summary.add({
@@ -26,7 +26,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -42,20 +42,20 @@ class ResultScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "You have answered ${getSummary().where((element) => element['rightAnswer'] == true).length} out of ${questions.length} questions",
+            "You have answered ${summaryData.where((element) => element['rightAnswer'] == true).length} out of ${questions.length} questions",
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 25,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          // QuestionsSummary(summaryData: getSummary()),
+          // QuestionsSummary(summaryData: summaryData),
           //this code snippet is my custom summarylist
-          SizedBox(height: 500, child: SummaryList(summary: getSummary())),
+          SizedBox(height: 600, child: SummaryList(summary: summaryData)),
           const SizedBox(
             height: 20,
           ),
@@ -79,11 +79,20 @@ class SummaryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
         itemCount: summary.length,
+        separatorBuilder: (context, index) => const Divider(
+              color: Colors.white,
+              height: 2,
+            ),
         itemBuilder: (context, index) => ListTile(
-            leading: Text("${index + 1}",
-                style: const TextStyle(color: Colors.white)),
+            // contentPadding: const EdgeInsets.symmetric(horizontal: 2),
+            horizontalTitleGap: 0,
+            leading: SizedBox(
+              width: 5,
+              child: Text("${index + 1}",
+                  style: const TextStyle(color: Colors.white)),
+            ),
             // leadingAndTrailingTextStyle: const TextStyle(color: Colors.white),
             title: Text(
               summary[index]['question'].toString(),
@@ -113,14 +122,14 @@ class SummaryList extends StatelessWidget {
                 ? const Icon(
                     Icons.check_circle,
                     color: Colors.green,
-                    fill: 1,
-                    size: 35,
+                    size: 30,
+                    textDirection: TextDirection.rtl,
                   )
                 : const Icon(
                     Icons.cancel,
-                    size: 35,
+                    size: 30,
                     color: Colors.red,
-                    fill: 1,
+                    textDirection: TextDirection.rtl,
                   )));
   }
 }

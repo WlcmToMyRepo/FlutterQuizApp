@@ -68,7 +68,7 @@ class _QuestionPageState extends State<QuestionPage> {
               const SizedBox(
                 height: 30,
               ),
-              ...questn.getShuffledAnswers().map((answer) => AnsBtn(
+              ...questn.shuffledAnswers.map((answer) => AnsBtn(
                   text: answer,
                   onPressed: () {
                     answerQuestion(answer);

@@ -75,81 +75,6 @@ const questions = [
       "flutter compile release",
       "flutter build release"
     ],
-  ), /*
-  Question(
-    "What is Flutter?",
-    [
-      "A cross-platform mobile app development framework",
-      "A new programming language",
-      "A cloud computing platform",
-      "A database management system"
-    ],
-  ),
-  Question(
-    "Which programming language is used for Flutter app development?",
-    ["Dart", "Java", "Swift", "Python"],
-  ),
-  Question(
-    "What is the widget in Flutter?",
-    [
-      "A user interface element",
-      "A physical device",
-      "A server hosting service",
-      "A database table"
-    ],
-  ),
-  Question(
-    "What is the primary function of the `main()` method in a Flutter app?",
-    [
-      "Define the app's entry point",
-      "Initialize the app's state",
-      "Define the app's user interface",
-      "Handle app navigation"
-    ],
-  ),
-  Question(
-    "Which widget is used for creating a scrollable list of widgets in Flutter?",
-    ["ListView", "Text", "Column", "Row"],
-  ),
-  Question(
-    "What is the purpose of the `setState()` method in Flutter?",
-    [
-      "Update the state of a widget and rebuild it",
-      "Set the device's state",
-      "Set a timer for delayed execution",
-      "Handle navigation between screens"
-    ],
-  ),
-  Question(
-    "Which Flutter layout widget arranges its children in a single line, either horizontally or vertically?",
-    ["Column", "Container", "Stack", "Row"],
-  ),
-  Question(
-    "How do you handle asynchronous operations in Flutter?",
-    [
-      "Use the `await` keyword with `async` functions",
-      "Use a `for` loop",
-      "Use the `break` statement",
-      "Use the `async` keyword with `await` loops"
-    ],
-  ),
-  Question(
-    "What is the purpose of the `pubspec.yaml` file in a Flutter project?",
-    [
-      "It specifies the app's dependencies and metadata",
-      "It contains the app's source code",
-      "It defines the app's layout and design",
-      "It contains the app's user interface code"
-    ],
-  ),
-  Question(
-    "Which command is used to build a release version of a Flutter app?",
-    [
-      "flutter build apk",
-      "flutter make release",
-      "flutter compile release",
-      "flutter build release"
-    ],
   ),
   Question(
     "What is a Flutter package?",
@@ -427,5 +352,5 @@ const questions = [
   Question(
     "Which widget is used to create a navigation drawer in Flutter?",
     ["Drawer", "Scaffold", "Appbar", "TabBarView"],
-  ),*/
+  ),
 ];
